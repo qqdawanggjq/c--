@@ -26,7 +26,7 @@ void your_sort(int* arr1,int len1,int* arr2,int len2,result* res)
     }
     for(int i=0;i<res->len-1;i++)
     {
-        for(int j=0;j<len-1-i;j++)
+        for(int j=0;j<res->len-1-i;j++)
         {
             if(res->arr[j]>res->arr[j+1])
             {
@@ -37,10 +37,15 @@ void your_sort(int* arr1,int len1,int* arr2,int len2,result* res)
         }
     }
     int slow=0;
-    for(int i=0;i<res->len;i++)
+    for(int fast=1;fast<res->len;fast++)
     {
-        if()
+        if(res->arr[fast]!=res->arr[slow])
+        {
+            slow++;
+            res->arr[slow]=res->arr[fast];
+        }
     }
+    res->len=slow+1;
 }
 int main() {
     int arr1[] = {2, 3, 1, 3, 2, 4, 6, 7, 9, 2, 10};
